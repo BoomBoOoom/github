@@ -1,0 +1,42 @@
+<!-- Always shows a header, even in smaller screens. -->
+
+
+<div class="app">
+  <header class="mdc-toolbar">
+    <div class="mdc-toolbar__row">
+      <section class="mdc-toolbar__section mdc-toolbar__section--align-start">
+        <a class="material-icons mdc-toolbar__menu-icon some-button">menu</a>
+        <img class="image" src="assets/githubretouche.png" alt="image">
+        <span class="mdc-toolbar__title">BoomBoom GitHub</span>
+      </section>
+      <p class="demo-paragraph">
+        <a class="mdl-navigation__link" routerLinkActive="active" routerLink="/"><i
+          class="material-icons color">home</i></a>
+        <a class="mdl-navigation__link" routerLinkActive="active" routerLink="/login"><i class="material-icons color">power_settings_new</i></a>
+        <a class="mdl-navigation__link" routerLinkActive="active" routerLink="/language"><i
+          class="material-icons color">language</i></a>
+        <a class="mdl-navigation__link" routerLinkActive="active" routerLink="/search"><i class="material-icons color">search</i></a>
+      </p>
+    </div>
+  </header>
+  <nav>
+    <div class="mdc-simple-menu nav" tabindex="-1">
+      <h4>BoomBoom GitHub</h4>
+      <ul class="mdc-simple-menu__items mdc-list" role="menu" aria-hidden="true">
+        <li class="mdc-list-item font" role="menuitem" tabindex="0">
+          <a class="mdl-navigation__link component" routerLinkActive="active" routerLink="/">Home</a>
+        </li>
+        <li class="mdc-list-item font" role="menuitem" tabindex="1" aria-disabled="true">
+          <a class="mdl-navigation__link component" routerLinkActive="active" routerLink="/login">Login</a>
+        </li>
+        <li class="mdc-list-item font" role="menuitem" tabindex="2" aria-disabled="true">
+          <a class="mdl-navigation__link component" routerLinkActive="active" routerLink="/language">Languages</a>
+        </li>
+        <li class="mdc-list-item font" role="menuitem" tabindex="3" aria-disabled="true">
+          <a class="mdl-navigation__link component" routerLinkActive="active" routerLink="/search">Search</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</div>
+<router-outlet></router-outlet>

@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en" class="mdc-typography">
+<head>
+  <meta charset="utf-8">
+  <title>BoomBoom GitHub</title>
+  <base href="/">
+  <link rel="stylesheet" href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+</head>
+
+<body>
+<app-root></app-root>
+<ng-component></ng-component>
+</body>
+<script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+<script>window.mdc.autoInit();</script>
+<script>
+  const toolbar = mdc.toolbar.MDCToolbar.attachTo(document.querySelector('.mdc-toolbar'));
+  toolbar.fixedAdjustElement = document.querySelector('.mdc-toolbar-fixed-adjust');
+  let menu = new mdc.menu.MDCSimpleMenu(document.querySelector('.mdc-simple-menu'));
+  // Add event listener to some button to toggle the menu on and off.
+  document.querySelector('.some-button').addEventListener('click', () => {menu.open = !menu.open});
+</script>
+</html>

@@ -1,0 +1,12 @@
+@font-face {
+  font-family: 'Neuropol';
+  src: url('../../assets/neuropol.ttf');
+  font-weight: bold;
+}
+
+.font{
+  font-family: 'Neuropol', sans-serif !important;
+  text-decoration: underline;
+  text-align: center;
+  padding-top: 10%;
+}

@@ -1,0 +1,76 @@
+@font-face {
+  font-family: 'Avenger3d';
+  src: url('../assets/avenger3d.ttf');
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: 'Avenger';
+  src: url('../assets/avenger.ttf');
+}
+
+.font{
+  font-family: 'Neuropol', sans-serif !important;
+  text-decoration: underline;
+  text-align: center;
+}
+
+
+.app {
+  border-top: 5px solid #576ca8;
+}
+
+.color{
+  color: white;
+}
+
+.nav{
+  font-family: 'Avenger', sans-serif !important;
+  background-color: #b1ddf1;
+  text-decoration: underline;
+  color: #1b264f;
+  border: 2px solid #1b264f;
+}
+
+.component{
+  color: #003c8f;
+  border-bottom: 1px solid #1b264f;
+}
+
+h4{
+  border-bottom: 1px solid #1b264f;
+}
+
+.mdc-toolbar__row {
+  padding-top: 2%;
+  background-color: #003c8f;
+  align-content: space-between;
+  padding-right: 10%;
+  border-bottom: 5px solid #576ca8;
+}
+
+.demo-paragraph{
+  padding-left: 5%;
+}
+
+.mdc-toolbar__title {
+  font-family: 'Avenger', sans-serif !important;
+  margin-left: 0%;
+}
+
+h1 {
+  font-weight: bolder;
+  color: #ffffff;
+}
+
+.font{
+  font-family: 'Neuropol', sans-serif !important;
+  font-size: smaller;
+}
+
+.image {
+  margin-top: 20%;
+  margin-left: 0%;
+  width: 40px;
+}
+

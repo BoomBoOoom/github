@@ -1,0 +1,14 @@
+@font-face {
+  font-family: 'Nasalization', sans-serif;
+  src: url('assets/nasalization-rg.ttf') format('ttf');
+  font-weight: bold;
+}
+
+body{
+  background-image: url('assets/backgroundtest.png');
+  background-position: top center;
+  width: 100%;
+  font-weight: bold;
+  color: #1b264f;
+}
+
