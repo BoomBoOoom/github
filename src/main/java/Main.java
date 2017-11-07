@@ -1,8 +1,7 @@
 import app.Api;
 import app.Servlet;
 import app.Web;
-import entity.Account;
-import io.ebean.EbeanServer;
+import com.jcabi.github.*;
 import org.alcibiade.asciiart.coord.TextBoxSize;
 import org.alcibiade.asciiart.image.rasterize.ShapeRasterizer;
 import org.alcibiade.asciiart.raster.ExtensibleCharacterRaster;
@@ -20,7 +19,6 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
-import tmp.DataSingleton;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -39,6 +37,19 @@ public class Main {
     public static void main(String[] args) throws IOException, URISyntaxException {
        // System.out.println(banner());
         start(Main.class, 8080).run(args);
+        Github github = new RtGithub("2744c31b1db31ae82fa9047e97a96a76e66535b8");
+        Repo repo = github.repos().get(
+                new Coordinates.Simple("jcabi", "jcabi-github")
+        );
+        Repo repoPerso = github.repos().get(
+                new Coordinates.Simple("BoomBoOoom", "test"));
+
+       // Issue issue = repo.issues().create("Hello there !", "How are you ?");
+        Issue issuePerso = repoPerso.issues().create("Hello there !!", "How are you ?");
+
+      //  issue.comments().post("My first comment!");
+        issuePerso.comments().post("There is another one!");
+
     }
     
     private static SpringApplication start(Class<?> parent, int port) {
