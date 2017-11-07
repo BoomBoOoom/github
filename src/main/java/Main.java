@@ -1,7 +1,8 @@
 import app.Api;
 import app.Servlet;
 import app.Web;
-import com.jcabi.github.*;
+import entity.Account;
+import io.ebean.EbeanServer;
 import org.alcibiade.asciiart.coord.TextBoxSize;
 import org.alcibiade.asciiart.image.rasterize.ShapeRasterizer;
 import org.alcibiade.asciiart.raster.ExtensibleCharacterRaster;
@@ -19,10 +20,8 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
-import com.jcabi.github.RtGithub;
-import com.jcabi.github.Issue;
-import com.jcabi.github.Github;
-import com.jcabi.github.Repo;
+import tmp.DataSingleton;
+
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -37,20 +36,11 @@ import java.net.URISyntaxException;
         MongoAutoConfiguration.class, MongoDataAutoConfiguration.class, DispatcherServletAutoConfiguration.class})
 @ComponentScan(basePackages = {"configuration"})
 public class Main {
-    public Main() throws IOException {
-    }
-
     public static void main(String[] args) throws IOException, URISyntaxException {
-        //System.out.println(banner());
+       // System.out.println(banner());
         start(Main.class, 8080).run(args);
-
-        Github github = new RtGithub("0669ac311d75d255a8c24f512f8d36eb5f583d48");
-        System.out.println("Informations GitHub : " + github);
-        Repo repo = github.repos().get(new Coordinates.Simple("BoomBooOm", "github"));
-        Issue issue = repo.issues().create("How are you?", "Please tell me...");
-        issue.comments().post("My first comment!");
     }
-
+    
     private static SpringApplication start(Class<?> parent, int port) {
         return new SpringApplicationBuilder(parent)
                 .bannerMode(Banner.Mode.OFF)
@@ -68,7 +58,7 @@ public class Main {
     }
 
     private static String banner() throws IOException {
-        File image = new File(Main.class.getResource("banner.png")
+        File image = new File(Main.class.getResource("/banner.png")
                 .toString().replace("file:", ""));
         BufferedImage circleImage = ImageIO.read(image);
         TextWidget widget = new PictureWidget(new TextBoxSize(80, 30),
@@ -77,5 +67,4 @@ public class Main {
         widget.render(new RasterContext(raster));
         return String.valueOf(raster);
     }
-
 }
