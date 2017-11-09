@@ -17,7 +17,7 @@
 
 
 .app {
-  border-top: 5px solid #576ca8;
+  border-top: 5px solid #00b9d1;
 }
 
 .color{
@@ -26,14 +26,14 @@
 
 .nav{
   font-family: 'Avenger', sans-serif !important;
-  background-color: #b1ddf1;
+  background-color: #222e50;
   text-decoration: underline;
-  color: #1b264f;
-  border: 2px solid #1b264f;
+  color: #ffffff;
+  border: 2px solid #fff568;
 }
 
 .component{
-  color: #003c8f;
+  color: #ffffff;
   border-bottom: 1px solid #1b264f;
 }
 
@@ -43,10 +43,10 @@ h4{
 
 .mdc-toolbar__row {
   padding-top: 2%;
-  background-color: #003c8f;
+  background-color: #222e50;
   align-content: space-between;
   padding-right: 10%;
-  border-bottom: 5px solid #576ca8;
+  border-bottom: 5px solid rgba(0, 116, 107, 0.93);
 }
 
 .demo-paragraph{
@@ -73,4 +73,5 @@ h1 {
   margin-left: 0%;
   width: 40px;
 }
+
 

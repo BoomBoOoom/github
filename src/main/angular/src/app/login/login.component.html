@@ -1,9 +1,15 @@
 <div class="font" *ngIf="oauth.isConnected()">
+  <button class="mdc-button logout" *ngIf="oauth.isConnected()" (click)="logout()">
+    <i class="material-icons mdc-button__icon">remove circle outline</i>
+    Logout : {{oauth.getUsername()}}
+  </button>
   <button class="mdc-button padding" (click)="deleteAllUser()">
     <i class="material-icons mdc-button__icon">clear</i>delete all users</button>
   <div *ngFor='let user of users'>
-    {{user.username}}<br/>
-    {{user.email}}
+    <div class="userInfos">
+    <p> Welcome {{user.username}} !!</p>
+    <p> {{user.email}}</p>
+    </div>
     <div *ngIf="user.edit">
       <button class="mdc-button" (click)="editUser(user, false)">
         <i class="material-icons mdc-button__icon">remove</i>
@@ -11,7 +17,7 @@
       </button>
       <form #data="ngForm" (ngSubmit)="putUser(user.username, data.value)">
         <div class="mdc-textfield">
-          <input required minlength=8 type="text" placeholder="Username" [ngModel]="user.username" class="mdc-textfield__input" id="username2"
+          <input required minlength=8 type="text" placeholder="Username" ngModel="user.username" class="mdc-textfield__input" id="username2"
                  aria-controls="pw-validation-msg">
           <div class="mdc-textfield__bottom-line"></div>
         </div>
@@ -22,7 +28,7 @@
           Must be at least 8 characters long
         </p>
         <div class="mdc-textfield">
-          <input required minlength=8 [ngModel]="user.password" placeholder="Password"  type="password" class="mdc-textfield__input" id="password2"
+          <input required minlength=8 ngModel="user.password" placeholder="Password"  type="password" class="mdc-textfield__input" id="password2"
                  aria-controls="pw-validation-msg">
           <div class="mdc-textfield__bottom-line"></div>
         </div>
@@ -58,7 +64,7 @@
   <div>
     <form #data="ngForm" (ngSubmit)="addUser(data.value)">
       <div class="mdc-textfield">
-        <input required minlength=8 type="text" placeholder="Username" class="mdc-textfield__input" id="username"
+        <input required minlength=8 type="text" placeholder="Username" class="mdc-textfield__input input" id="username"
                aria-controls="username-validation-msg">
         <div class="mdc-textfield__bottom-line"></div>
       </div>
@@ -69,7 +75,7 @@
         Must be at least 8 characters long
       </p>
       <div class="mdc-textfield">
-        <input required minlength=8 type="password" placeholder="Password" class="mdc-textfield__input" id="pw"
+        <input required minlength=8 type="password" placeholder="Password" class="mdc-textfield__input input" id="pw"
                aria-controls="pw-validation-msg">
         <div class="mdc-textfield__bottom-line"></div>
       </div>
@@ -80,14 +86,14 @@
         Must be at least 8 characters long
       </p>
       <div class="mdc-textfield">
-        <input type="email" id="email" class="mdc-textfield__input" placeholder="Mail Address">
+        <input type="email" id="email" class="mdc-textfield__input input" placeholder="Mail Address">
 
         <div class="mdc-textfield__bottom-line"></div>
       </div>
       <p class="mdc-textfield-helptext mdc-textfield-helptext--persistent">
         We will <em>never</em> share your email address with third parties
       </p>
-      <button type="submit" class="mdc-button">
+      <button type="submit" class="mdc-button submit">
         <i class="material-icons mdc-button__icon">forward</i>
         Submit
       </button>
@@ -119,14 +125,10 @@
        id="password3-validation-msg">
       Must be at least 8 characters long
     </p>
-    <button type="submit" class="mdc-button">
+    <button type="submit" class="mdc-button submit">
       <i class="material-icons mdc-button__icon">power_settings_new</i>
       Login
     </button>
   </form>
-  <button class="mdc-button" style="text-align:center" *ngIf="oauth.isConnected()" (click)="logout()">
-    <i class="material-icons mdc-button__icon">remove circle outline</i>
-    Logout : {{oauth.getUsername()}}
-  </button>
 </div>
 

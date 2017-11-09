@@ -7,16 +7,11 @@ import {OauthService} from "./oauth.service";
 import {LoginComponent} from "./login/login.component";
 import {RouterModule, Routes} from "@angular/router";
 import {HomeComponent} from "./home/home.component";
-import {LanguageComponent} from "./language/language.component";
 import {SearchComponent} from "./search/search.component";
-import {AuthGuard} from "./can-activate.authguard";
-import {AuthService} from "./authentication.service";
-import {LoginService} from "./login.service";
 
 const appRoutes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'search', component: SearchComponent},
-  {path: 'language', component: LanguageComponent},
   {path: '**', component: HomeComponent},
 ];
 
@@ -26,7 +21,6 @@ const appRoutes: Routes = [
     LoginComponent,
     HomeComponent,
     SearchComponent,
-    LanguageComponent,
   ],
   imports: [
     RouterModule.forRoot(
@@ -37,8 +31,8 @@ const appRoutes: Routes = [
     HttpClientModule,
     FormsModule
   ],
-  providers: [LoginService, AuthService, AuthGuard, OauthService],
-  bootstrap: [AppComponent, LoginComponent, HomeComponent, SearchComponent, LanguageComponent]
+  providers: [OauthService],
+  bootstrap: [AppComponent, LoginComponent, HomeComponent, SearchComponent]
 })
 
 export class AppModule {}

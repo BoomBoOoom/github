@@ -24,7 +24,7 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getAllUser();
+  //  this.getAllUser();
   }
 
   /*
@@ -50,12 +50,12 @@ export class AppComponent implements OnInit {
 
   getAllUser(): void {
     this.error = "";
-    this.oauth.get<User[]>("/account").subscribe(bla => {
+    this.oauth.get<Account[]>("/account").subscribe(bla => {
       this.users = bla;
     }, error => this.oauth.error(error));
   }
 
-  addUser(user: User): void {
+  addUser(user: Account): void {
     this.oauth.post("/account", user).subscribe(bla => {
       this.onResult(bla);
     }, error => this.oauth.error(error));

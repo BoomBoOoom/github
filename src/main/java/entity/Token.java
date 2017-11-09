@@ -11,22 +11,27 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "token")
-public class Token {
+public class Token extends BaseEntity {
     @Expose
     private String token;
     @Expose
-    private String username;
+    private Long user_id;
     @Expose
     private String token_type = "Bearer";
     @Expose
     private int ttl = 3600;
+    private Long id_token;
 
     public Token() {
 
     }
 
-    public String getUsername() {
-        return username;
+    public Long getId_token() {
+        return id_token;
+    }
+
+    public Long getUser_id() {
+        return user_id;
     }
 
     public int getTtl() {
@@ -41,10 +46,6 @@ public class Token {
         return token_type;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
     public void setToken(String token) {
         this.token = token;
     }
@@ -55,5 +56,13 @@ public class Token {
 
     public void setToken_type(String token_type) {
         this.token_type = token_type;
+    }
+
+    public void setUser_id(Long user_id) {
+        this.user_id = user_id;
+    }
+
+    public void setId_token(Long id_token) {
+        this.id_token = id_token;
     }
 }

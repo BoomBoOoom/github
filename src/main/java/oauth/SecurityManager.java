@@ -1,6 +1,7 @@
 package oauth;
 
 import entity.Token;
+import io.ebean.Ebean;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
@@ -21,22 +22,33 @@ public class SecurityManager implements HandlerInterceptor, OauthPath {
     public boolean preHandle(HttpServletRequest request,
                              HttpServletResponse response, Object handler) throws Exception {
         Enumeration headerName = request.getHeaderNames();
+        System.out.println("1");
         for (; headerName.hasMoreElements(); ) {
             String header = (String) headerName.nextElement();
             if (header.equals("authorization")) {
                 String authorization_tmp[] = request.getHeader("authorization").split(" ");
+                System.out.println("2");
+                // Todo : revoir cette partie du code pour terminer l'auth
+                /*
                 if (authorization_tmp.length == 2) {
                     String token_type = authorization_tmp[0];
                     String token_value = authorization_tmp[1];
+                    System.out.println("3");
+
                     if (token_type.equals("Bearer")) {
-                        List<Token> tokens = DataSingleton.getInstance().getTokens();
+                        List<Token> tokens = Ebean.createQuery(Token.class).findList();
+                        System.out.println(tokens.toString());
+                        System.out.println("4");
+                        //List<Token> tokens = DataSingleton.getInstance().getTokens();
                         for (Token token : tokens) {
                             if (token.getToken().equals(token_value)) {
+                                System.out.println("5");
                                 return true;
                             }
                         }
                     }
-                }
+            }*/
+
             }
         }
         response.setStatus(HttpStatus.UNAUTHORIZED.value());

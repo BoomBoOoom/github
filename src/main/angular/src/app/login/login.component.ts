@@ -1,12 +1,12 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {OauthService} from "../oauth.service";
-import {User} from "../app.component";
+import {Router} from "@angular/router";
 
 class Account {
-  email: String = '';
-  username: String = '';
-  password: String = '';
+  email: String;
+  username: String;
+  password: String;
   edit: boolean = false;
 }
 
@@ -20,11 +20,11 @@ export class LoginComponent implements OnInit {
   public error: String = "";
 
 
-  constructor(private http: HttpClient, public oauth: OauthService) {
+  constructor(private http: HttpClient, public oauth: OauthService, private router: Router) {
     }
 
   ngOnInit(): void {
-    this.getAllUser();
+ //   this.getAllUser();
   }
 
   /*
@@ -35,7 +35,6 @@ export class LoginComponent implements OnInit {
     this.http.post(this.loginUrl, body).map(...);
    */
 
-  // @TODO: change username & password by id & name
   login(user: Account): void {
     this.oauth.login(user.username, user.password).subscribe(bla => {
       bla.connected = true;
@@ -62,13 +61,9 @@ export class LoginComponent implements OnInit {
     }, error => this.oauth.error(error));
   }
 
-
-  // @TODO: Problem with this function too, edit method is not accepted HERE
-
-  /*
   editUser(current: Account, show: boolean): void {
     current.edit = show;
-  }*/
+  }
 
   putUser(currentUser: String, user: Account): void {
     this.oauth.put("/account/" + currentUser, user).subscribe(bla => {

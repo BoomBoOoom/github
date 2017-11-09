@@ -7,9 +7,12 @@ create table account (
 );
 
 create table token (
+  id                            bigint auto_increment not null,
   token                         varchar(255),
-  username                      varchar(255),
+  user_id                       bigint,
   token_type                    varchar(255),
-  ttl                           integer not null
+  ttl                           integer not null,
+  id_token                      bigint,
+  constraint pk_token primary key (id)
 );
 
