@@ -24,7 +24,8 @@ public class GitHubController {
     @GetMapping
     public JSONArray info() throws IOException {
         JSONArray res = new JSONArray();
-        GitHub github = (GitHub) Ebean.createQuery(Account.class).findList();
+        
+        GitHub github = GitHub.connectUsingOAuth(token);
         System.err.println("3");
         Map<String, GHRepository> map = github.getMyself().getAllRepositories();
         Iterator<Map.Entry<String, GHRepository>> iterable = map.entrySet().iterator();

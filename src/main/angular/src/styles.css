@@ -5,9 +5,7 @@
 }
 
 body{
-  background-image: url('assets/BG_5.png');
-  background-position: center;
-  background-attachment: fixed;
+  background: url('assets/BG_5.png') top center no-repeat fixed;
   font-weight: bold;
   color: #1b264f;
 }

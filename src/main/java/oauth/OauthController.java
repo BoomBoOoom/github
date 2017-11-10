@@ -34,7 +34,8 @@ public class OauthController {
             String username = base64DecodeTmp[0];
             String password = base64DecodeTmp[1];
 
-           /* List<Account> accounts = Ebean.createQuery(Account.class).findList();
+           /*
+            *List<Account> accounts = Ebean.createQuery(Account.class).findList();
             //List<Account> accounts = DataSingleton.getInstance().getAccounts();
             for (Account account : accounts) {
                 if (account.getUsername().equals(username)
@@ -54,6 +55,7 @@ public class OauthController {
                 try {
                     GHAuthorization auth = createAuthToken(github);
                     obj.put("token", auth.getToken());
+                    obj.put("token_type", "Bearer");
                 } catch (Exception e) {
                     Token token = Ebean.createQuery(Token.class).where().eq("user_id", github.getMyself().getId()).findOne();
                     if (token != null) {
@@ -61,6 +63,10 @@ public class OauthController {
                         Ebean.delete(token);
                         GHAuthorization auth = createAuthToken(github);
                         obj.put("token", auth.getToken());
+                        obj.put("token_type", "Bearer");
+                    } else {
+                        response.setStatus(HttpStatus.UNAUTHORIZED.value());
+                        return "";
                     }
                 }
                 return obj.toString();

@@ -29,7 +29,7 @@
   background-color: #222e50;
   text-decoration: underline;
   color: #ffffff;
-  border: 2px solid #fff568;
+  border: 2px solid  rgba(0, 116, 107, 0.93);
 }
 
 .component{

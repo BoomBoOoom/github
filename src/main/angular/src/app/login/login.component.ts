@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
     }
 
   ngOnInit(): void {
- //   this.getAllUser();
+   this.getAllUser();
   }
 
   /*
@@ -37,6 +37,7 @@ export class LoginComponent implements OnInit {
 
   login(user: Account): void {
     this.oauth.login(user.username, user.password).subscribe(bla => {
+      console.log(bla);
       bla.connected = true;
       this.oauth.setToken(bla);
       this.getAllUser();
