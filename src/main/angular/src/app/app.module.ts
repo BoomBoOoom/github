@@ -32,7 +32,7 @@ const appRoutes: Routes = [
     FormsModule
   ],
   providers: [OauthService],
-  bootstrap: [AppComponent, LoginComponent, HomeComponent, SearchComponent]
+  bootstrap: [AppComponent]
 })
 
 export class AppModule {}

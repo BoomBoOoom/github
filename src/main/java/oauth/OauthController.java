@@ -34,21 +34,6 @@ public class OauthController {
             String username = base64DecodeTmp[0];
             String password = base64DecodeTmp[1];
 
-           /*
-            *List<Account> accounts = Ebean.createQuery(Account.class).findList();
-            //List<Account> accounts = DataSingleton.getInstance().getAccounts();
-            for (Account account : accounts) {
-                if (account.getUsername().equals(username)
-                        && account.getPassword().equals(password)) {
-                    Token token = new Token();
-                    token.setToken(UUID.randomUUID().toString());
-                    token.setUser_id(account.getId());
-                    token.setTtl(3600);
-                    //DataSingleton.getInstance().getTokens().add(token);
-                    Ebean.save(token);
-                    return DataSingleton.gson().toJson(token);
-                }
-            }*/
             GitHub github = GitHub.connectUsingPassword(username, password);
             if (github.isCredentialValid()) {
                 JSONObject obj = new JSONObject();
@@ -100,6 +85,19 @@ public class OauthController {
         // TOKEN_TYPE, ACCESS_TOKEN, EXPIRES_IN
         return "";
     }
-
-
+/*
+            *List<Account> accounts = Ebean.createQuery(Account.class).findList();
+            //List<Account> accounts = DataSingleton.getInstance().getAccounts();
+            for (Account account : accounts) {
+                if (account.getUsername().equals(username)
+                        && account.getPassword().equals(password)) {
+                    Token token = new Token();
+                    token.setToken(UUID.randomUUID().toString());
+                    token.setUser_id(account.getId());
+                    token.setTtl(3600);
+                    //DataSingleton.getInstance().getTokens().add(token);
+                    Ebean.save(token);
+                    return DataSingleton.gson().toJson(token);
+                }
+            }*/
 }

@@ -3,51 +3,10 @@
     <i class="material-icons mdc-button__icon">remove circle outline</i>
     Logout : {{oauth.getUsername()}}
   </button>
-  <button class="mdc-button padding" (click)="deleteAllUser()">
-    <i class="material-icons mdc-button__icon">clear</i>delete all users</button>
   <div *ngFor='let user of users'>
     <div class="userInfos">
     <p> Welcome {{user.username}} !!</p>
     <p> {{user.email}}</p>
-    </div>
-    <div *ngIf="user.edit">
-      <button class="mdc-button" (click)="editUser(user, false)">
-        <i class="material-icons mdc-button__icon">remove</i>
-        close
-      </button>
-      <form #data="ngForm" (ngSubmit)="putUser(user.username, data.value)">
-        <div class="mdc-textfield">
-          <input required minlength=8 type="text" placeholder="Username" ngModel="user.username" class="mdc-textfield__input" id="username2"
-                 aria-controls="pw-validation-msg">
-          <div class="mdc-textfield__bottom-line"></div>
-        </div>
-        <p class="mdc-textfield-helptext
-          mdc-textfield-helptext--persistent
-          mdc-textfield-helptext--validation-msg"
-           id="username2-validation-msg">
-          Must be at least 8 characters long
-        </p>
-        <div class="mdc-textfield">
-          <input required minlength=8 ngModel="user.password" placeholder="Password"  type="password" class="mdc-textfield__input" id="password2"
-                 aria-controls="pw-validation-msg">
-          <div class="mdc-textfield__bottom-line"></div>
-        </div>
-        <p class="mdc-textfield-helptext
-          mdc-textfield-helptext--persistent
-          mdc-textfield-helptext--validation-msg"
-           id="password2-validation-msg">
-          Must be at least 8 characters long
-        </p>
-        <div class="mdc-textfield">
-          <input type="email" [ngModel]="user.email" placeholder="Mail" id="mail" class="mdc-textfield__input">
-          <div class="mdc-textfield__bottom-line"></div>
-        </div>
-        <p class="mdc-textfield-helptext mdc-textfield-helptext--persistent">
-          We will <em>never</em> share your email address with third parties
-        </p>
-        <button type="submit" class="mdc-button">
-          <i class="material-icons mdc-button__icon">forward</i></button>
-      </form>
     </div>
     <button class="mdc-button" *ngIf="!user.edit" (click)="editUser(user, true)">
       <i class="material-icons mdc-button__icon">mode_edit</i>
@@ -58,55 +17,13 @@
       Delete
     </button>
   </div>
-
-  <br/>
-
-  <div>
-    <form #data="ngForm" (ngSubmit)="addUser(data.value)">
-      <div class="mdc-textfield">
-        <input required minlength=8 type="text" placeholder="Username" class="mdc-textfield__input input" id="username"
-               aria-controls="username-validation-msg">
-        <div class="mdc-textfield__bottom-line"></div>
-      </div>
-      <p class="mdc-textfield-helptext
-          mdc-textfield-helptext--persistent
-          mdc-textfield-helptext--validation-msg"
-         id="username-validation-msg">
-        Must be at least 8 characters long
-      </p>
-      <div class="mdc-textfield">
-        <input required minlength=8 type="password" placeholder="Password" class="mdc-textfield__input input" id="pw"
-               aria-controls="pw-validation-msg">
-        <div class="mdc-textfield__bottom-line"></div>
-      </div>
-      <p class="mdc-textfield-helptext
-          mdc-textfield-helptext--persistent
-          mdc-textfield-helptext--validation-msg"
-         id="pw-validation-msg">
-        Must be at least 8 characters long
-      </p>
-      <div class="mdc-textfield">
-        <input type="email" id="email" class="mdc-textfield__input input" placeholder="Mail Address">
-
-        <div class="mdc-textfield__bottom-line"></div>
-      </div>
-      <p class="mdc-textfield-helptext mdc-textfield-helptext--persistent">
-        We will <em>never</em> share your email address with third parties
-      </p>
-      <button type="submit" class="mdc-button submit">
-        <i class="material-icons mdc-button__icon">forward</i>
-        Submit
-      </button>
-    </form>
-  </div>
 </div>
 <br/><br/>
 <div>
   <form *ngIf="!oauth.isConnected()" #data_login="ngForm" (ngSubmit)="login(data_login.value)" class="form">
-    <div class="mdc-textfield">
-      <input required minlength=8 type="text" name="username" placeholder="Username" ngModel class="mdc-textfield__input input"
-             aria-controls="pw-validation-msg">
-      <div class="mdc-textfield__bottom-line"></div>
+    <div class="mdc-text-field">
+      <input type="text" id="username" placeholder="Username" class="color input mdc-text-field__input" required minlength=8>
+      <div class="mdc-text-field__bottom-line"></div>
     </div>
     <p class="mdc-textfield-helptext
           mdc-textfield-helptext--persistent
@@ -114,10 +31,9 @@
        id="username3-validation-msg">
       Must be at least 8 characters long
     </p>
-    <div class="mdc-textfield">
-      <input required minlength=8 type="password" name="password" placeholder="Password" ngModel class="color mdc-textfield__input input"
-             aria-controls="pw-validation-msg">
-      <div class="mdc-textfield__bottom-line"></div>
+    <div class="mdc-text-field">
+      <input type="password" id="pw" placeholder="Password"  class="color input mdc-text-field__input" required minlength=8>
+      <div class="mdc-text-field__bottom-line"></div>
     </div>
     <p class="mdc-textfield-helptext
           mdc-textfield-helptext--persistent
