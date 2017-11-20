@@ -1,46 +1,35 @@
 <div class="font" *ngIf="oauth.isConnected()">
+
+
+  <div class="userInfos">
+    <p> Welcome {{oauth.getUsername()}} !!</p>
+    <div *ngFor="let githubInfo of githubInfos" class="infos">
+      <p> name: {{githubInfo.name}} </p>
+      <p> avatar_url: {{githubInfo.avatar_url}} </p>
+      <p> files: {{githubInfo.files}} </p>
+      <p> readme: {{githubInfo.readme}} </p>
+    </div>
+  </div>
+
   <button class="mdc-button logout" *ngIf="oauth.isConnected()" (click)="logout()">
     <i class="material-icons mdc-button__icon">remove circle outline</i>
     Logout : {{oauth.getUsername()}}
   </button>
-  <div *ngFor='let user of users'>
-    <div class="userInfos">
-    <p> Welcome {{user.username}} !!</p>
-    <p> {{user.email}}</p>
-    </div>
-    <button class="mdc-button" *ngIf="!user.edit" (click)="editUser(user, true)">
-      <i class="material-icons mdc-button__icon">mode_edit</i>
-      Edit
-    </button>
-    <button class="mdc-button" *ngIf="!user.edit" (click)="deleteUser(user.username)">
-      <i class="material-icons mdc-button__icon">delete</i>
-      Delete
-    </button>
-  </div>
 </div>
-<br/><br/>
 <div>
   <form *ngIf="!oauth.isConnected()" #data_login="ngForm" (ngSubmit)="login(data_login.value)" class="form">
     <div class="mdc-text-field">
-      <input type="text" id="username" placeholder="Username" class="color input mdc-text-field__input" required minlength=8>
+      <input type="text" name="username" placeholder="Username" class="color input mdc-text-field__input" required
+             ngModel>
       <div class="mdc-text-field__bottom-line"></div>
     </div>
-    <p class="mdc-textfield-helptext
-          mdc-textfield-helptext--persistent
-          mdc-textfield-helptext--validation-msg"
-       id="username3-validation-msg">
-      Must be at least 8 characters long
-    </p>
+
     <div class="mdc-text-field">
-      <input type="password" id="pw" placeholder="Password"  class="color input mdc-text-field__input" required minlength=8>
+      <input type="password" name="password" placeholder="Password" class="color input mdc-text-field__input" required
+             ngModel>
       <div class="mdc-text-field__bottom-line"></div>
     </div>
-    <p class="mdc-textfield-helptext
-          mdc-textfield-helptext--persistent
-          mdc-textfield-helptext--validation-msg"
-       id="password3-validation-msg">
-      Must be at least 8 characters long
-    </p>
+
     <button type="submit" class="mdc-button submit">
       <i class="material-icons mdc-button__icon">power_settings_new</i>
       Login

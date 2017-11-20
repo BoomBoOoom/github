@@ -44,11 +44,17 @@ button {
 
 .logout {
   border: 2px solid #af1e23;
-  margin-top: 5%;
-  margin-right: 20%;
+  margin-right: 5%;
   float: right;
 }
 
 .userInfos{
-  font-size: larger;
+  color: #af1e23;
+  font-size: xx-large;
+}
+
+.infos{
+  color: black;
+  font-size: large;
+  padding-bottom: 2%;
 }

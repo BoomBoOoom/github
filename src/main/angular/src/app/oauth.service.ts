@@ -11,6 +11,7 @@ class Token {
   connected: Boolean = false;
 }
 
+
 @Injectable()
 export class OauthService {
   private url: String = "http://localhost:8080/api";
@@ -27,6 +28,7 @@ export class OauthService {
   }
 
   public login(username: String, password: String): Observable<Token> {
+    console.log("username: " + username + ", password : " + password);
     return this.http.post<Token>(this.url + "/oauth/auth", null, {
       headers: new HttpHeaders()
         .set('Authorization', 'Basic ' + btoa(username + ":" + password))
@@ -45,6 +47,8 @@ export class OauthService {
   public getUsername(): String {
     return this.token.username;
   }
+
+
 
   public isConnected(): Boolean {
     return this.token.connected;

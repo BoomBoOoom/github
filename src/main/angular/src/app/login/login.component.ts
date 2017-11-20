@@ -10,22 +10,46 @@ class Account {
   edit: boolean = false;
 }
 
+class GitHub {
+  name: String = "";
+  files: String = "";
+  readme: String = "";
+  avatar_url: String = "";
+}
+
 @Component({
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
 
 export class LoginComponent implements OnInit {
-  public users: Account[] = [];
+  public username: String;
+  public files: String;
+  public name: String;
+  public avatar_url: String;
+  public readme: String;
+  private github: GitHub = new GitHub();
+  public githubInfos: GitHub[];
+
   public error: String = "";
 
 
   constructor(private http: HttpClient, public oauth: OauthService, private router: Router) {
-    }
+  }
 
   ngOnInit(): void {
-   this.getAllUser();
+    this.username = this.oauth.getUsername();
+
+    this.oauth.get<GitHub[]>('/account/')
+      .subscribe(data => {
+        this.githubInfos = data;
+        console.log(this.githubInfos);
+      });
   }
+
+  /*getAvatar(avatar_url: String){
+     return this.github.avatar_url;
+   }*/
 
   /*
     let body = new URLSearchParams();
@@ -36,25 +60,22 @@ export class LoginComponent implements OnInit {
    */
 
   login(user: Account): void {
+    console.log(user);
     this.oauth.login(user.username, user.password).subscribe(bla => {
       console.log(bla);
       bla.connected = true;
       this.oauth.setToken(bla);
-      this.getAllUser();
     }, error => this.oauth.error(error));
   }
 
   logout(): void {
     this.oauth.logout();
-    this.users = [];
+    this.username = "";
+    this.name = "";
+    this.files = "";
+    this.readme = "";
   }
 
-  getAllUser(): void {
-    this.error = "";
-    this.oauth.get<Account[]>("/account").subscribe(bla => {
-      this.users = bla;
-    }, error => this.oauth.error(error));
-  }
 
   addUser(user: Account): void {
     this.oauth.post("/account", user).subscribe(bla => {
@@ -78,18 +99,11 @@ export class LoginComponent implements OnInit {
     }, error => this.oauth.error(error));
   }
 
-  deleteAllUser(): void {
-    this.oauth.remove("/account").subscribe(bla => {
-      this.onResult(bla);
-    }, error => this.oauth.error(error))
-  }
 
   onResult(bla: any): void {
     if (bla["error"] != undefined) {
       console.log(bla["error"]);
       this.error = bla["error"];
-    } else {
-      this.getAllUser();
     }
   }
 }

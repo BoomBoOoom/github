@@ -1,5 +1,6 @@
 package oauth;
 
+import entity.Account;
 import entity.Token;
 import io.ebean.Ebean;
 import org.kohsuke.github.GitHub;
@@ -10,6 +11,8 @@ import tmp.DataSingleton;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.List;
@@ -29,25 +32,21 @@ public class SecurityManager implements HandlerInterceptor, OauthPath {
             if (header.equals("authorization")) {
                 String authorization_tmp[] = request.getHeader("authorization").split(" ");
                 System.out.println("2");
-                // Todo : revoir cette partie du code pour terminer l'auth
-
-
                 if (authorization_tmp.length == 2) {
                     String token_type = authorization_tmp[0];
                     String token_value = authorization_tmp[1];
                     System.out.println("3");
                     if (token_type.equals("Bearer")) {
-                        Token token = Ebean.createQuery(Token.class).where().eq("token", token_value).findOne();
-                        if(token != null){
-                            GitHub github = GitHub.connectUsingOAuth(token.getToken());
-                            if(github.isCredentialValid()){
+                        List<Token> tokens = Ebean.createQuery(Token.class).findList();
+                        //List<Token> tokens = DataSingleton.getInstance().getTokens();
+                        for (Token token : tokens) {
+                            if (token.getToken().equals(token_value)) {
+                                addToModelUserDetails(token, request.getSession());
                                 return true;
                             }
                         }
-
                     }
                 }
-
             }
         }
         response.setStatus(HttpStatus.UNAUTHORIZED.value());
@@ -55,6 +54,12 @@ public class SecurityManager implements HandlerInterceptor, OauthPath {
         return false;
 
     }
+
+    private void addToModelUserDetails(Token token, HttpSession session) throws IOException {
+        session.setAttribute("oauth_account",
+                GitHub.connectUsingOAuth(token.getToken()));
+    }
+
 
     @Override
     public void postHandle(HttpServletRequest request,

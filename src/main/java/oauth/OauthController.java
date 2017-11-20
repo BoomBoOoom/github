@@ -41,6 +41,7 @@ public class OauthController {
                     GHAuthorization auth = createAuthToken(github);
                     obj.put("token", auth.getToken());
                     obj.put("token_type", "Bearer");
+                    obj.put("username", username);
                 } catch (Exception e) {
                     Token token = Ebean.createQuery(Token.class).where().eq("user_id", github.getMyself().getId()).findOne();
                     if (token != null) {
@@ -49,6 +50,7 @@ public class OauthController {
                         GHAuthorization auth = createAuthToken(github);
                         obj.put("token", auth.getToken());
                         obj.put("token_type", "Bearer");
+                        obj.put("username", username);
                     } else {
                         response.setStatus(HttpStatus.UNAUTHORIZED.value());
                         return "";
@@ -69,11 +71,20 @@ public class OauthController {
         scopes.add("user");
         GHAuthorization auth = github.createToken(scopes, "test", "http://test.fr");
         auth.getId();
-        Token token = new Token();
-        token.setToken(auth.getToken());
-        token.setUser_id(github.getMyself().getId());
-        token.setId_token(auth.getId());
-        Ebean.save(token);
+        List<Token> tokens = Ebean.createQuery(Token.class).where().eq("user_id", github.getMyself().getId()).findList();
+        System.out.println(tokens);
+        if (tokens.size() > 0) {
+            Ebean.delete(tokens);
+        }else {
+            Token token = new Token();
+            token.setToken(auth.getToken());
+            System.out.println("debug token");
+            token.setUser_id(github.getMyself().getId());
+            token.setId_token(auth.getId());
+            System.out.println("debug test");
+            Ebean.save(token);
+
+        }
         return auth;
     }
 
