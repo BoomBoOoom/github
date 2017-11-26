@@ -17,10 +17,7 @@ import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.List;
 
-/**
- * @author sheol on 10/28/17 at 7:47 PM
- * @project SpringRestDemo
- */
+
 public class SecurityManager implements HandlerInterceptor, OauthPath {
     @Override
     public boolean preHandle(HttpServletRequest request,

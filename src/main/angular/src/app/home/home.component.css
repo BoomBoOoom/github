@@ -10,9 +10,10 @@
   text-align: center;
 }
 
-h1{
+.text{
   font-family: 'Neuropol', sans-serif !important;
   font-weight: bold;
+  font-size: larger;
   text-decoration: underline;
   text-align: center;
 }
@@ -21,3 +22,4 @@ h1{
   text-align: center;
   margin-top: 10%;
 }
+

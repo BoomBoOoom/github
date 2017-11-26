@@ -4,11 +4,6 @@
   font-weight: bold;
 }
 
-.padding {
-  margin-top: 5%;
-  border: 2px solid #af1e23;
-}
-
 .center {
   text-align: center;
   margin-left: 50%;
@@ -37,9 +32,36 @@ button {
   font-size: larger;
 }
 
-.input {
+.color {
   font-family: 'Neuropol', sans-serif !important;
-  color: #1b264f;
+  color: #222e50 !important;
+  font-size: larger;
+  padding-bottom: 5%;
+}
+
+img{
+  width: 6%;
+}
+
+.gitinfos{
+  display: flex;
+}
+
+.title{
+  font-family: 'Neuropol', sans-serif !important;
+  color: #0b162c;
+  font-weight: bold;
+  font-size: larger;
+  padding-bottom: 3%;
+}
+
+.image{
+  display: flex;
+  border: 5px solid #1b264f;
+}
+
+.larger{
+  font-size: larger;
 }
 
 .logout {
@@ -48,9 +70,14 @@ button {
   float: right;
 }
 
+.mdc-list-item{
+  font-family: 'Neuropol', sans-serif !important;
+}
+
 .userInfos{
   color: #af1e23;
   font-size: xx-large;
+  padding-top: 8%;
 }
 
 .infos{
