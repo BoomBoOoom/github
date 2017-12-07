@@ -1,0 +1,236 @@
+@import url(https://fonts.googleapis.com/css?family=Lato);
+@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css);
+
+body {
+  font-family: 'Lato', sans-serif;
+  color: #FFF;
+  background: #322f30;
+  -webkit-font-smoothing: antialiased;
+}
+a {
+  text-decoration: none;
+  color: #fff;
+}
+p > a:hover{
+  color: #d9d9d9;
+  text-decoration:  underline;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin:  1% 0 1% 0;
+}
+._12 {
+  font-size: 1.2em;
+}
+._14 {
+  font-size: 1.4em;
+}
+
+._15 {
+  font-size: 1.0em;
+}
+
+.blue{
+  color: #1b264f;
+}
+
+footer{
+  margin-bottom: 0 !important;
+}
+
+ul {
+  padding:0;
+  list-style: none;
+}
+.footer-social-icons {
+  width: 350px;
+  display: inline-block;
+  margin-left : 75%;
+  float: right !important;
+}
+.social-icon {
+  color: #fff;
+}
+ul.social-icons {
+  margin-top: 10px;
+}
+.social-icons li {
+  vertical-align: top;
+  display: inline;
+  height: 100px;
+}
+.social-icons a {
+  color: #fff;
+  text-decoration: none;
+}
+.fa-facebook {
+  padding:10px 14px;
+  -o-transition:.5s;
+  -ms-transition:.5s;
+  -moz-transition:.5s;
+  -webkit-transition:.5s;
+  transition: .5s;
+  background-color: #322f30;
+}
+.fa-facebook:hover {
+  background-color: #3d5b99;
+}
+.fa-twitter {
+  padding:10px 12px;
+  -o-transition:.5s;
+  -ms-transition:.5s;
+  -moz-transition:.5s;
+  -webkit-transition:.5s;
+  transition: .5s;
+  background-color: #322f30;
+}
+.fa-twitter:hover {
+  background-color: #00aced;
+}
+.fa-rss {
+  padding:10px 14px;
+  -o-transition:.5s;
+  -ms-transition:.5s;
+  -moz-transition:.5s;
+  -webkit-transition:.5s;
+  transition: .5s;
+  background-color: #322f30;
+}
+.fa-rss:hover {
+  background-color: #eb8231;
+}
+.fa-youtube {
+  padding:10px 14px;
+  -o-transition:.5s;
+  -ms-transition:.5s;
+  -moz-transition:.5s;
+  -webkit-transition:.5s;
+  transition: .5s;
+  background-color: #322f30;
+}
+.fa-youtube:hover {
+  background-color: #e64a41;
+}
+.fa-linkedin {
+  padding:10px 14px;
+  -o-transition:.5s;
+  -ms-transition:.5s;
+  -moz-transition:.5s;
+  -webkit-transition:.5s;
+  transition: .5s;
+  background-color: #322f30;
+}
+.fa-linkedin:hover {
+  background-color: #0073a4;
+}
+.fa-google-plus {
+  padding:10px 9px;
+  -o-transition:.5s;
+  -ms-transition:.5s;
+  -moz-transition:.5s;
+  -webkit-transition:.5s;
+  transition: .5s;
+  background-color: #322f30;
+}
+.fa-google-plus:hover {
+  background-color: #e25714;
+}
+
+@font-face {
+  font-family: 'Avenger3d';
+  src: url('../assets/avenger3d.ttf');
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: 'Avenger';
+  src: url('../assets/avenger.ttf');
+}
+
+.font {
+  font-family: 'Neuropol', sans-serif !important;
+  text-decoration: underline;
+  text-align: center;
+}
+
+.app {
+  border-top: 5px solid #00b9d1;
+}
+
+.color {
+  color: white;
+}
+
+.nav {
+  font-family: 'Avenger', sans-serif !important;
+  background-color: #222e50;
+  text-decoration: underline;
+  color: #ffffff;
+  border: 2px solid rgba(0, 116, 107, 0.93);
+}
+
+.component {
+  color: #ffffff;
+  border-bottom: 1px solid #1b264f;
+}
+
+h4 {
+  border-bottom: 1px solid #1b264f;
+}
+
+.mdc-toolbar__row {
+  background-color: #222e50;
+  align-content: space-between;
+  padding-right: 10%;
+  border-bottom: 5px solid rgba(0, 116, 107, 0.93);
+}
+
+.demo-paragraph {
+  padding-left: 5%;
+}
+
+.mdc-toolbar__title {
+  font-family: 'Avenger', sans-serif !important;
+  margin-left: 0%;
+}
+
+h1 {
+  font-weight: bolder;
+  color: #ffffff;
+}
+
+.font {
+  font-family: 'Neuropol', sans-serif !important;
+  font-size: smaller;
+}
+
+.image {
+  margin-top: 8px;
+  margin-left: 0%;
+  width: 35px;
+}
+
+.mdl-mini-footer {
+  font-family: 'Avenger', sans-serif !important;
+  font-weight: bold;
+  font-size: large;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10%;
+  color: white !important;
+}
+
+.title{
+  font-size: larger;
+  text-decoration: underline;
+  padding-left: 2%;
+  padding-right: 2%;
+}
+.list {
+  color: #0b162c !important;
+  font-family: 'Neuropol', sans-serif;
+}

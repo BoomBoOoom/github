@@ -2,9 +2,9 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
-    <groupId>SheolRest</groupId>
-    <artifactId>BoomBoom_GitHub</artifactId>
+    <modelVersion>1.0.0</modelVersion>
+    <groupId>Yfekar</groupId>
+    <artifactId>GitHub Project</artifactId>
     <version>1.0-SNAPSHOT</version>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -21,7 +21,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>1.5.7.RELEASE</version>
+        <version>1.5.8.RELEASE</version>
     </parent>
     <repositories>
         <repository>
@@ -33,17 +33,17 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot</artifactId>
-            <version>1.5.7.RELEASE</version>
+            <version>1.5.8.RELEASE</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-rest</artifactId>
-            <version>1.5.7.RELEASE</version>
+            <version>1.5.8.RELEASE</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-autoconfigure</artifactId>
-            <version>1.5.7.RELEASE</version>
+            <version>1.5.8.RELEASE</version>
         </dependency>
         <dependency>
             <groupId>org.mongodb</groupId>
@@ -68,7 +68,7 @@
         <dependency>
             <groupId>io.ebean</groupId>
             <artifactId>ebean</artifactId>
-            <version>11.2.3</version>
+            <version>11.6.1</version>
         </dependency>
         <dependency>
             <groupId>mysql</groupId>
