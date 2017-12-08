@@ -8,5 +8,5 @@
 ```
 ##
 <p align="center">
-  <img src="src/main/resources/AppGitHub.png" width="350"/>
+  <img src="src/main/resources/AppGitHub.png" width="600"/>
 </p>
