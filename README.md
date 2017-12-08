@@ -7,4 +7,6 @@
     mvn generate-resources spring-boot:run
 ```
 ##
-![Alt text](github/src/main/resources/AppGitHub.png?raw=true "Title")
+<p align="center">
+  <img src="github/src/main/resources/AppGitHub.png" width="350"/>
+</p>
