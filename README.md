@@ -11,4 +11,4 @@
 <p align="center">
   <img src="src/main/resources/AppGitHub.png" width="1200"/>
 </p>
-# made by yfekhub, update 30/04/2018
+<pre style="font-style: italic;">made by yfekhub, update 30/04/2018</pre>
